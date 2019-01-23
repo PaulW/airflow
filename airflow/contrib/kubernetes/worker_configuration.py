@@ -246,7 +246,7 @@ class WorkerConfiguration(LoggingMixin):
             labels={
                 'airflow-worker': worker_uuid,
                 'dag_hash': hashlib.md5(dag_id.encode()).hexdigest(),
-                'task_hash':hashlib.md5(task_id.encode()).hexdigest(),
+                'task_hash': hashlib.md5(task_id.encode()).hexdigest(),
                 'execution_date': execution_date,
                 'try_number': str(try_number),
             },

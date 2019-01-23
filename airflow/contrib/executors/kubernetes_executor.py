@@ -555,7 +555,8 @@ class KubernetesExecutor(BaseExecutor, LoggingMixin):
 
         for task in queued_tasks:
             dict_string = "dag_hash={},task_hash={},execution_date={},airflow-worker={}" \
-                .format(hashlib.md5(task.dag_id.encode()).hexdigest(), hashlib.md5(task.task_id.encode()).hexdigest(),
+                .format(hashlib.md5(task.dag_id.encode()).hexdigest(),
+                        hashlib.md5(task.task_id.encode()).hexdigest(),
                         AirflowKubernetesScheduler._datetime_to_label_safe_datestring(
                             task.execution_date), self.worker_uuid)
             kwargs = dict(label_selector=dict_string)
